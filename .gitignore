@@ -1,0 +1,13 @@
+node_modules
+.next
+.ldnpmrc
+build/
+out/
+static/robots.txt
+package-lock.json
+note
+
+# CI/CD
+.gitlab-ci.yml
+newrelic_agent.log
+static/sitemap.xml

@@ -1,0 +1,130 @@
+body {
+  font-family: iranyekan;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav {
+  direction: rtl;
+}
+
+footer {
+  font-size: 0.8em;
+  background-color: #f6f7fc;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+hr {
+  background-color: #eee;
+}
+
+.visa-main {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: bottom;
+  background-position-x: left;
+  direction: rtl;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 120px;
+  padding-top: 30px;
+}
+
+.visa-main h1 {
+  line-height: 3rem;
+  font-size: 1.6rem;
+  color: #343434;
+  text-align: justify;
+}
+
+.visa-index-container {
+  width: 50%;
+}
+
+.visa-index-top {
+  /* width: 100%; */
+}
+
+.visa-index-content {
+  line-height: 30px;
+}
+
+.visa-index-button {
+  width: 100%;
+  margin-top: 5%
+}
+
+.visa-button {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(129deg, #FF9A36 0%, #FF7932 100%);
+  padding: 1rem 2rem;
+  transition: 1s;
+  box-shadow: 0px 4px 3px #d6d2d2;
+  align-items: center;
+}
+
+.visa-button.disabled,
+.visa-button.disabled:hover {
+  color: #444;
+}
+
+.visa-index-top h2 {
+  line-height: 3rem;
+  font-size: 1.6rem;
+  color: #343434;
+  text-align: justify;
+  margin-top: -40px;
+  font-weight: bold;
+}
+
+.visa-index-arrow {
+  margin-top: 0.3rem;
+}
+
+.visa-index-arrow::after {
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid transparent;
+  border-right: .3em solid;
+  border-bottom: .3em solid transparent;
+  border-left: 0;
+  position: relative;
+  top: 5px;
+  right: 0;
+  opacity: 0;
+  transition: .5s;
+}
+.visa-index-arrow span {
+  position: relative;
+  left: 0;
+  transition: .5s;
+}
+.visa-index-arrow:hover span {
+  left: 10px;
+}
+.visa-index-arrow:hover::after {
+  opacity: 1;
+}
+
+#visa-section {
+  background-color: #fff;
+}

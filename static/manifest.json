@@ -1,0 +1,20 @@
+{
+  "short_name": "بامن‌رو",
+  "name": "بامن‌رو: مهاجرت، ویزا، وقت سفارت",
+  "icons": [
+    {
+      "src": "/static/img/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/img/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/home",
+  "background_color": "#007fff",
+  "display": "standalone",
+  "theme_color": "#007fff"
+}
