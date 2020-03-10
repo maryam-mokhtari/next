@@ -1,3 +1,5 @@
+import { login, logout, } from './api/login'
+import { getFames, getFame, } from './api/fame'
 import { setVisa, } from './api/visagift'
 import {
   countdown,
@@ -5,4 +7,5 @@ import {
 
 export {
   countdown, setVisa,
+  login, logout, getFame, getFames,
 }

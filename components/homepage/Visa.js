@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { consoleLog, } from '../../utils/config'
 import VisaIndex from './VisaIndex'
+import Button from './Button'
 
 export default class Visa extends Component {
   render() {

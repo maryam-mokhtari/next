@@ -12,6 +12,8 @@ const reducer = (state = { }, action) => {
   errorMessage = getErrorMessage(action.payload, errorMessage)
   switch (action.type) {
     case ActionTypes.VISA_REQUEST:
+    case ActionTypes.LOGIN_REQUEST:
+    case ActionTypes.LOGOUT_REQUEST:
       return { ...newState,
         isFormLoading: true, isFormSuccess: null,
         messageType: null, messageText: null,
@@ -19,6 +21,18 @@ const reducer = (state = { }, action) => {
         counter: null,
       }
 
+
+      case ActionTypes.LOGOUT_SUCCESS:
+        Cookies.remove('token')
+        return { ...newState,
+          isLoginSuccess: false,
+          errorMessage,
+          isLogout: true,
+          isFormSuccess: true,
+          isFormLoading: false,
+        }
+    case ActionTypes.LOGIN_SUCCESS:
+      newState = {...newState, isAlertHidden: true,}
     case ActionTypes.VISA_SUCCESS:
       return { ...newState,
         errorMessage,
@@ -28,6 +42,8 @@ const reducer = (state = { }, action) => {
         messageText: (action.payload.status_code === 200? ln('submittedSuccess'): errorMessage),
       }
 
+    case ActionTypes.LOGOUT_FAILURE:
+    case ActionTypes.LOGIN_FAILURE:
     case ActionTypes.VISA_FAILURE:
       return { ...newState,
         isFormSuccess: false, errorMessage, isFormLoading: false,

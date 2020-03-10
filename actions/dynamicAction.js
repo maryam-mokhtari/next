@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-fetch'
+import Cookies from 'js-cookie'
 // import fetch from 'node-fetch'
 import { RSAA } from 'redux-api-middleware'
 import ActionTypes from './ActionTypes'
 import { apiBaseUrl, consoleLog, } from '../utils/config'
 
-export const mFetch = (endpoint, actionType, method, body, metaRequest, metaSuccess,
+export const mFetch = (endpoint, actionType, method, isAuth = true, body, metaRequest, metaSuccess,
     headers = {}) => {
   consoleLog('mFetch:', apiBaseUrl, endpoint, actionType, method, body, metaRequest, metaSuccess,
    headers)
@@ -15,6 +16,7 @@ export const mFetch = (endpoint, actionType, method, body, metaRequest, metaSucc
   }
   headers['Content-Type'] = 'application/json'
   headers['Accept'] = 'application/json'
+  isAuth && (headers['Authorization'] = 'Bearer ' + Cookies.get('token'))
   consoleLog('headers is : ', headers)
   let request = {
     type: ActionTypes[actionType + '_REQUEST']
@@ -23,13 +25,6 @@ export const mFetch = (endpoint, actionType, method, body, metaRequest, metaSucc
     type: ActionTypes[actionType + '_SUCCESS'],
     payload: (action, state, response) => {
       consoleLog('success', actionType)
-      if (response.headers.get('Content-Range')) {
-        return response.json().then(data => {
-          ({
-          data: data,
-          range: response.headers.get('Content-Range')
-        })})
-      }
       const result = response.json()
       return result.data? result.data : result
     },

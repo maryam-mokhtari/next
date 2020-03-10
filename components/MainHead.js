@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
-import { consoleLog, clientBaseUrl } from '../utils/config'
+import { consoleLog, server } from '../utils/config'
 
 export default class MainHead extends Component {
   render() {
@@ -32,13 +32,13 @@ export default class MainHead extends Component {
         <meta property="og:description" content={description ||
           "اخذ ویزا، وقت سفارت، مهاجرت و خدمات پس از ورود کانادا"} />
         {mainSlug && mainSlug != '' ?
-        <meta property="og:url" content={`${clientBaseUrl}/article/${mainSlug}`} />
+        <meta property="og:url" content={`${server}/article/${mainSlug}`} />
         :
-        <meta property="og:url" content={`${clientBaseUrl}`} />
+        <meta property="og:url" content={`${server}`} />
         }
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="fa_IR" />
-        <meta property="og:image" content={image || `${clientBaseUrl}/static/img/logo.svg` } />
+        <meta property="og:image" content={image || `${server}/static/img/logo.svg` } />
         <meta property="og:author" content="Maryam Mokhtari" />
         <meta property="og:keywords" content={keywords || "ویزای کانادا, ویزای آمریکا, مهاجرت به کانادا, وقت سفارت, اجاره آپارتمان در کانادا"} />
         <meta property="twitter:locale" content="fa_IR" />
@@ -49,11 +49,11 @@ export default class MainHead extends Component {
           "اخذ ویزا، وقت سفارت، مهاجرت و خدمات پس از ورود کانادا"} />
         <meta property="twitter:keywords" content={keywords || "ویزای کانادا, ویزای آمریکا, مهاجرت به کانادا, وقت سفارت, اجاره آپارتمان در کانادا"} />
         <meta property="twitter:creator" content="Maryam Mokhtari" />
-        <meta property="twitter:image" content={image || `${clientBaseUrl}/static/img/logo.png`} />
+        <meta property="twitter:image" content={image || `${server}/static/img/logo.png`} />
         {mainSlug && mainSlug != '' ?
-        <meta property="twitter:site" content={`${clientBaseUrl}/article/${mainSlug}`} />
+        <meta property="twitter:site" content={`${server}/article/${mainSlug}`} />
         :
-        <meta property="twitter:site" content={`${clientBaseUrl}`} />
+        <meta property="twitter:site" content={`${server}`} />
         }
         <link rel="icon" href={`/static/favicon.ico`} type="image/x-icon" />
         <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png" />
