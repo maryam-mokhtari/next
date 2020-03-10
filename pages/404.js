@@ -1,8 +1,10 @@
 import React, { Component } from "react"
+import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import MainHead from "../components/MainHead"
 import MainScripts from "../components/MainScripts"
 import { consoleLog, } from "../utils/config"
+import '../static/sass/404.scss'
 
 export default class ErrorPage404 extends Component {
   static async getInitialProps({ query, res }) {
@@ -13,16 +15,18 @@ export default class ErrorPage404 extends Component {
     const { menu, } = this.props
     const headerProps = { menu, }
     return (
-      <div>
+      <main>
         <MainHead />
-        <main>
-          <div className="txt-container-error">
-            <div className="txt1-error-404">Not Found!</div>
-            <div className="txt2-error-404">Please Try Again.</div>
-          </div>
-        </main>
+        <div className="txt-container-error">
+          <div className="txt1-error-404">Not Found!</div>
+          <Link href="/login">
+            <a className="txt2-error-404">
+              Please Try Again.
+            </a>
+          </Link>
+        </div>
         <MainScripts />
-      </div>
+        </main>
     )
   }
 }
