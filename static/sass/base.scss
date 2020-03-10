@@ -1,14 +1,42 @@
-$font-size: 50px;
-$color: #ff7f00;
-#evaluation-index {
-  .visa-index-content {
-    width: 60%;
-    margin: auto;
-  }
-  .visa-button.visa-index-arrow {
-    width: 250px;
-  }
-  .visa-index-container {
-    width: 55%;
+@import "colors";
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  font-size: 1rem;
+}
+#__next {
+  height: 100%;
+}
+main {
+  background-color: lighten($color, 75%);
+  height: 100%;
+}
+.login-box {
+  background-color: $white;
+  padding: 50px;
+  width: 400px;
+  margin: 10% auto;
+  box-shadow: 0 5px 5px rgba(50, 50, 50, 0.2);
+}
+.header {
+  display: flex;
+  width: 100%;
+  background: $color;
+  color: $white;
+  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.pixel-logo {
+  width: 30px;
+  margin: 5px;
+}
+.log-out-div {
+  cursor: pointer;
+  &:hover {
+    color: lighten($color, 50%);
   }
 }

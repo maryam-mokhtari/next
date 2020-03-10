@@ -15,13 +15,10 @@ export default class ErrorPage404 extends Component {
     return (
       <div>
         <MainHead />
-        <main id="main" className="sec">
-          <div id="inner-main" className="toppage-bar-page flex-col">
-              <div className="txt-container-error">
-              <div className="txt1-error-404">Not Found!</div>
-              <div className="txt2-error-404">Please Try Again.</div>
-              </div>
-              <img className="img-error" src={`/static/img/404.svg`} />
+        <main>
+          <div className="txt-container-error">
+            <div className="txt1-error-404">Not Found!</div>
+            <div className="txt2-error-404">Please Try Again.</div>
           </div>
         </main>
         <MainScripts />

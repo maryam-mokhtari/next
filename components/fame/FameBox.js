@@ -9,22 +9,22 @@ export default class FameBox extends Component {
     return (
       <Link key={fame.id} href={`/fame/${fame.id}`} passHref>
         <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div className="article-box article-holder">
-            <div className="article-box-image"
+          <div className="fame-box fame-holder">
+            <div className="fame-box-image"
               style={{
                 backgroundImage:
                   `url('${fame.image || `/static/img/bamanro-default.jpeg`}')`
                 }}
             />
-            <div className="articles-box-content">
+            <div className="fame-box-content">
               <Link href={`/fame/${fame.id}`}>
                 <a>
-                  <h3 className="article-box-header">
+                  <h3 className="fame-box-header">
                     {fame.name.replace(/\u200E/g, '\u200C')}
                   </h3>
                 </a>
               </Link>
-              <div className="article-box-text">
+              <div className="fame-box-text">
                 {fame.dob}
               </div>
             </div>

@@ -13,7 +13,6 @@ const webpackConfig = (config, { isServer }) => {
       fs: 'empty'
     }
   }
-  // console.log = function() {}
   return config
 }
 

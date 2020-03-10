@@ -10,23 +10,7 @@ import Router from 'next/router'
 import fetch from 'isomorphic-unfetch'
 import { initStore } from '../store'
 import {consoleLog} from '../utils/config'
-import '../static/css/base.css'
 import '../static/sass/base.scss'
-import '../static/css/override.css'
-import '../static/css/collapse.css'
-if (process.env.NODE_ENV === 'production') {
-  Sentry.init({
-      dsn: 'https://5c36d4ab4b984726aeb31f943ad98f22@sentry.io/1863966'
-  })
-}
-
-Router.events.on('routeChangeStart', url => {
-  NProgress.start()
-})
-Router.events.on('routeChangeComplete', () => {
-  NProgress.done()
-})
-Router.events.on('routeChangeError', () => NProgress.done())
 
 export default withRedux(initStore)(
   class MyApp extends App {
@@ -36,20 +20,6 @@ export default withRedux(initStore)(
         ? await Component.getInitialProps(ctx)
         : {}
       }
-    }
-
-    componentDidCatch(error, errorInfo) {
-      Sentry.withScope((scope) => {
-        Object.keys(errorInfo).forEach((key) => {
-          scope.setExtra(key, errorInfo[key])
-        })
-        Sentry.captureException(error)
-      })
-      super.componentDidCatch(error, errorInfo)
-    }
-
-    componentDidMount() {
-      hotjar.initialize(1377405, 6)
     }
 
     componentDidUpdate(prevProps) {

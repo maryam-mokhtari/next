@@ -5,11 +5,11 @@ import { getInitials, } from '../utils/initial'
 import {
   login, logout,
 } from '../actions'
-import LoginHeader from '../components/login/LoginHeader'
-import LoginFooter from '../components/login/LoginFooter'
 import Login from '../components/login/Login'
+import Header from '../components/login/Header'
 import MainHead from '../components/MainHead'
 import MainScripts from '../components/MainScripts'
+import '../static/sass/login.scss'
 
 class LoginPage extends Component {
 
@@ -17,28 +17,13 @@ class LoginPage extends Component {
     // return getInitials(ctx)
   }
   render() {
-    const signupProps = {...this.props, type: 'login', isErrorAlert: true}
     return (
-      <div>
+      <main>
         <MainHead />
-        <main id="main" className="sec">
-          <div id="inner-main" style={{marginTop: '100px'}}>
-            <div className="wrapper-auth">
-              <div className="login-container">
-                <div className="login-image" />
-                <div className="signup-left">
-                  <LoginHeader title="Login" />
-                  <Login {...signupProps} />
-                  <div className="signup-text-down">
-                    <LoginFooter type={this.props.type} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
+        <Header isLogin={true} />
+        <Login />
         <MainScripts />
-      </div>
+      </main>
     )
   }
 }

@@ -1,14 +1,6 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document'
 import fetch from 'isomorphic-unfetch'
-import * as Sentry from '@sentry/browser'
 
-process.on('unhandledRejection', (err) => {
-    Sentry.captureException(err)
-})
-
-process.on('uncaughtException', (err) => {
-    Sentry.captureException(err)
-})
 
 class MyDocument extends Document {
   // static async getInitialProps(ctx) {
@@ -18,7 +10,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="fa">
+      <Html lang="en">
         <Head>
         </Head>
         <body>

@@ -5,7 +5,7 @@ import nextCookie from 'next-cookies'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
-import Visa from '../components/homepage/Visa'
+import Index from '../components/homepage/Index'
 import MainHead from '../components/MainHead'
 import { getInitials, getIndexInitials } from '../utils/initial'
 import MainScripts from '../components/MainScripts'
@@ -19,7 +19,7 @@ class Homepage extends Component {
     return (
       <div className="body">
         <MainHead />
-        <Visa />
+        <Index />
         <MainScripts />
       </div>
     )

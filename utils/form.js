@@ -47,37 +47,3 @@ export const checkValue = (val, msg, that) => {
 //     password.type = 'password'
 //   }
 // }
-
-export async function submit(args, func, that,) {
-  console.log('submit::', args, func, that);
-  await func(...args)
-
-  // if (that.props.isFormSuccess && that.props.errorMessage == null) {
-      showAlert(that)
-      if (that._isMounted) {
-        that.setState({ errorMessage: that.props.errorMessage })
-      }
-    // }
-  // }
-
-  if (that._isMounted) {
-    that.setState({ isLoading: false })
-  }
-}
-
-export async function submitForm(e, that, args, func, ) {
-  e.preventDefault()
-  e.stopPropagation()
-  that.setState({ isLoading: true, errorMessage: null, })
-  if (that.getFormChecked()) {
-      await submit(args, func, that,)
-      if (that.props.isLoginSuccess) {
-        Cookies.set('token', 'test')
-        Router.push('/fames/1')
-      }
-    } else {
-      if (that._isMounted) {
-        that.setState({ isLoading: false })
-      }
-    }
-}

@@ -1,0 +1,14 @@
+@import "colors";
+
+.login-label {
+  color: $color;
+  font-weight: bold;
+  font-size: .9rem;
+}
+.forget-password {
+  color: $link !important;
+  font-weight: bold;
+  font-size: .9rem;
+  padding-top: 10px;
+  float: right;
+}

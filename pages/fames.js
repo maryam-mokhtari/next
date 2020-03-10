@@ -8,7 +8,7 @@ import {getInitials} from '../utils/initial'
 import MainHead from '../components/MainHead'
 import MainScripts from '../components/MainScripts'
 import FameBox from '../components/fame/FameBox'
-import HeaderProfile from '../components/login/HeaderProfile'
+import Header from '../components/login/Header'
 
 export default class FamesPage extends Component {
   static async getInitialProps (ctx) {
@@ -27,7 +27,7 @@ export default class FamesPage extends Component {
       <div>
         <MainHead />
         <main id="main" className="sec">
-          <HeaderProfile />
+          <Header />
           <div id="inner-main">
             {fames && isArrayOK(fames.list) && fames.list.map(fame => (
               <FameBox fame={fame} key={fame.id} />
