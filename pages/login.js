@@ -1,11 +1,17 @@
 import React, { Component } from "react"
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { getInitials, } from '../utils/initial'
+import {
+  login, logout,
+} from '../actions'
 import LoginHeader from '../components/login/LoginHeader'
 import LoginFooter from '../components/login/LoginFooter'
-import MainHead from '../MainHead'
-import MainScripts from '../MainScripts'
+import Login from '../components/login/Login'
+import MainHead from '../components/MainHead'
+import MainScripts from '../components/MainScripts'
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
 
   static async getInitialProps(ctx) {
     // return getInitials(ctx)
@@ -21,7 +27,7 @@ export default class LoginPage extends Component {
               <div className="login-container">
                 <div className="login-image" />
                 <div className="signup-left">
-                  <LoginHeader title={title} />
+                  <LoginHeader title="Login" />
                   <Login {...signupProps} />
                   <div className="signup-text-down">
                     <LoginFooter type={this.props.type} />
@@ -32,6 +38,27 @@ export default class LoginPage extends Component {
           </div>
         </main>
         <MainScripts />
+      </div>
     )
   }
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch,
+    ...bindActionCreators({
+      login, logout,
+    }, dispatch),
+  }
+}
+
+const mapStateToProps = state => {
+  const { isFormSuccess, isFormLoading, errorMessage,
+    isLoginSuccess, isAlertHidden, } = state
+  return { isFormSuccess, isFormLoading, errorMessage,
+    isLoginSuccess, isAlertHidden, }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage)

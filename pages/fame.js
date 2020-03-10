@@ -10,28 +10,27 @@ import MainScripts from '../components/MainScripts'
 import FameBox from '../components/fame/FameBox'
 import HeaderProfile from '../components/login/HeaderProfile'
 
-export default class FamesPage extends Component {
+export default class FamePage extends Component {
   static async getInitialProps (ctx) {
-    return getInitials(ctx, 'fames', `/fames?page=${ctx.query.pageNumber - 1}`)
+    return getInitials(ctx, 'fame', `/fames/${ctx.query.fameId}`)
   }
 
   componentDidMount() {
-    const { fames, } = this.props;
-    (!fames || !isArrayOK(fames.list)) && Router.push('/login')
+    const { fame, } = this.props;
+    console.log('fame:', fame);
+    (!fame || fame.error) && Router.push('/login')
   }
 
   render() {
-    consoleLog('FamesPage props:', this.props)
-    const { fames, } = this.props
+    consoleLog('FamePage props:', this.props)
+    const { fame, } = this.props
     return (
       <div>
         <MainHead />
         <main id="main" className="sec">
           <HeaderProfile />
           <div id="inner-main">
-            {fames && isArrayOK(fames.list) && fames.list.map(fame => (
-              <FameBox fame={fame} key={fame.id} />
-            ))}
+            {fame && !fame.error && <FameBox fame={fame} key={fame.id} />}
           </div>
         </main>
         <MainScripts />

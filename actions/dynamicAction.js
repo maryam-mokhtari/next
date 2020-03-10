@@ -3,13 +3,13 @@ import Cookies from 'js-cookie'
 // import fetch from 'node-fetch'
 import { RSAA } from 'redux-api-middleware'
 import ActionTypes from './ActionTypes'
-import { apiBaseUrl, consoleLog, } from '../utils/config'
+import { server, consoleLog, } from '../utils/config'
 
 export const mFetch = (endpoint, actionType, method, isAuth = true, body, metaRequest, metaSuccess,
     headers = {}) => {
-  consoleLog('mFetch:', apiBaseUrl, endpoint, actionType, method, body, metaRequest, metaSuccess,
+  consoleLog('mFetch:', server, endpoint, actionType, method, body, metaRequest, metaSuccess,
    headers)
-  endpoint = apiBaseUrl + endpoint
+  endpoint = server + endpoint
 
   if (!method) {
     method = 'GET'
@@ -24,8 +24,8 @@ export const mFetch = (endpoint, actionType, method, isAuth = true, body, metaRe
   let success = {
     type: ActionTypes[actionType + '_SUCCESS'],
     payload: (action, state, response) => {
-      consoleLog('success', actionType)
       const result = response.json()
+      consoleLog('success::', actionType, result, state)
       return result.data? result.data : result
     },
   }

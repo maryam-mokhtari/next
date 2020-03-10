@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import LoginByEmail from './LoginByEmail'
-import LoginByPhoneTab from './LoginByPhoneTab'
 import { consoleLog, } from '../../utils/config'
 
 export default class Login extends Component {
@@ -14,7 +13,7 @@ export default class Login extends Component {
       <div className={`${isErrorAlert? '': 'no-hide  login-box'}`}>
         <div className={`login-${loginType}-container no-hide `}>
           {!isErrorAlert && <div className="login-top-arrow no-hide"></div>}
-          <LoginByPhoneTab {...this.props} />
+          <LoginByEmail {...this.props} />
         </div>
       </div>
     )

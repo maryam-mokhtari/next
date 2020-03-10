@@ -6,7 +6,7 @@ import { setCookie, } from '../utils/cookie'
 import { ln, } from '../utils/language'
 
 const reducer = (state = { }, action) => {
-  consoleLog('ActionType>', action.type)
+  consoleLog('ActionType>>', action.type)
   let newState = {...state, isFormSuccess: null, errorMessage: null, }
   let errorMessage = "خطایی رخ داده است"
   errorMessage = getErrorMessage(action.payload, errorMessage)
@@ -32,6 +32,7 @@ const reducer = (state = { }, action) => {
           isFormLoading: false,
         }
     case ActionTypes.LOGIN_SUCCESS:
+    console.log('LOGIN_SUCCESS::',action);
       newState = {...newState, isAlertHidden: true,}
     case ActionTypes.VISA_SUCCESS:
       return { ...newState,
