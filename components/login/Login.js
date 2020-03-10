@@ -9,7 +9,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoading: false,
+      isLoading: null,
       errorMessage: null,
       isLoginSuccess: null,
     }
@@ -24,7 +24,8 @@ export default class Login extends Component {
   }
 
   async submit(e) {
-    this.getFormChecked() &&
+    const { page, param } = this.props.query
+    this.setState({isLoading: true})
     fetch(`${server}/login`, {
       method: 'POST',
       headers: {
@@ -41,10 +42,10 @@ export default class Login extends Component {
     })
     .then(res => {
       if (res.data.success) {
-        Router.push('/fames/1')
-        this.setState({isLoginSuccess: true})
+        this.setState({isLoginSuccess: true, isLoading: false});
+        (page && param)? Router.push(`/${page}/${param}`) : Router.push('/fames/1')
       } else {
-        this.setState({isLoginSuccess: false, errorMessage: 'Login Failed.'})
+        this.setState({isLoginSuccess: false, isLoading: false, errorMessage: 'Login Failed.'})
       }
     })
 
@@ -62,7 +63,7 @@ export default class Login extends Component {
          </label>
           <input ref="username" id="username" className="form-control login-input"
             tabIndex="1"
-            defaultValue='test'
+            // defaultValue='test'
             required
            />
         </fieldset>
@@ -74,7 +75,7 @@ export default class Login extends Component {
           <input ref="password" id="password" type="password"
             className="form-control login-input"
             tabIndex="2"
-            defaultValue='test'
+            // defaultValue='test'
             required
              />
           <div className="form-error">{this.state.errorMessage}</div>
@@ -85,14 +86,14 @@ export default class Login extends Component {
           className={`btn btn-primary
             ${this.state.isLoading && "disabled" || ""}`}
           type="button"
-          onClick={(e) => this.submit(e)}
+          onClick={(e) => this.getFormChecked() && this.submit(e)}
         >
           Login
           {
             this.state.isLoading &&
             <img
               alt=""
-              className="loading-image"
+              className="login-loading-image"
               src={`/static/img/loading.gif`}
             />
           }

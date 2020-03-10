@@ -20,16 +20,16 @@ export default class FamePage extends Component {
   componentDidMount() {
     const { fame, } = this.props;
     console.log('fame:', fame);
-    (!fame || fame.error) && Router.push('/login')
+    (!fame || fame.error) && Router.push(`/login`)
   }
 
   render() {
     consoleLog('FamePage props:', this.props)
-    const { fame, } = this.props
+    const { fame, query } = this.props
     return (
       <main>
         <MainHead />
-        <Header />
+        <Header query={query} />
         <div className="fame">
           {fame && !fame.error && <FameBox fame={fame} key={fame.id} isDetail={true} />}
         </div>

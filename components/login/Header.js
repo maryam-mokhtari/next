@@ -7,6 +7,7 @@ import { consoleLog, server, } from "../../utils/config"
 export default class Header extends Component {
   state = {isLoading: null}
   async logout() {
+    const { pageNumber, fameId, } = this.props.query
     this.setState({isLoading: true})
     fetch(`${server}/logout`, {
       method: 'POST',
@@ -18,8 +19,12 @@ export default class Header extends Component {
     }).then(res => {
       this.setState({isLoading: false})
       if (res.status == '200') {
-        Cookies.remove('token')
-        Router.push('/login')
+        Cookies.remove('token');
+        pageNumber?
+          Router.push(`/login/fames/${pageNumber}`) :
+          fameId?
+            Router.push(`/login/fame/${fameId}`) :
+            Router.push('/login')
       }
     })
   }
@@ -38,16 +43,18 @@ export default class Header extends Component {
         {!this.props.isLogin &&
           <div className="log-out-div"
             onClick={() => this.logout()}>
-              Logout
               {
-                this.state.isLoading &&
+                this.state.isLoading?
                 (
                 <img
                   alt=""
-                  className="loading-image profile-loading"
+                  className="loading-image"
                   src={`/static/img/loading.gif`}
                 />
-              )}
+              )
+              :
+              "Logout"
+            }
           </div>
         }
       </div>

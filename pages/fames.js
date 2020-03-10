@@ -18,8 +18,9 @@ export default class FamesPage extends Component {
   }
 
   componentDidMount() {
-    const { fames, } = this.props;
-    (!fames || !isArrayOK(fames.list)) && Router.push('/login')
+    const { fames, query, } = this.props;
+    const { pageNumber } = query;
+    (!fames || !isArrayOK(fames.list)) && Router.push(`/login`)
   }
 
   render() {
@@ -29,7 +30,7 @@ export default class FamesPage extends Component {
     return (
       <main>
         <MainHead />
-        <Header />
+        <Header query={query} />
         <div className="fames">
           {fames && isArrayOK(fames.list) && fames.list.map(fame => (
             <FameBox fame={fame} pageNumber={pageNumber} key={fame.id} />
