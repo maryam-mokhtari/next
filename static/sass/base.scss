@@ -46,3 +46,14 @@ main {
     color: lighten($color, 50%);
   }
 }
+.start {
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  width: 100px;
+  display: block;
+  background-color: $link;
+  margin: 50px auto;
+  color: $white;
+  border-radius: 10px;
+}

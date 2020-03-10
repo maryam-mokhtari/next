@@ -7,9 +7,7 @@ import { consoleLog, } from "../utils/config"
 import '../static/sass/404.scss'
 
 export default class ErrorPage404 extends Component {
-  static async getInitialProps({ query, res }) {
-    return { menu : 404 }
-  }
+  
   render() {
     consoleLog("404 props:", this.props)
     const { menu, } = this.props
