@@ -8,15 +8,13 @@ import animateScrollTo from 'animated-scroll-to'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import fetch from 'isomorphic-unfetch'
-import { initStore } from '../store'
 import {consoleLog} from '../utils/config'
 import '../static/sass/base.scss'
 import '../static/sass/login.scss'
 import '../static/sass/responsive-600.scss'
 import '../static/sass/responsive-400.scss'
 
-export default withRedux(initStore)(
-  class MyApp extends App {
+export default class MyApp extends App {
     static async getInitialProps ({ Component, ctx }) {
       return {
         pageProps: Component.getInitialProps
@@ -38,14 +36,11 @@ export default withRedux(initStore)(
     }
 
     render () {
-      const { Component, pageProps, store } = this.props
+      const { Component, pageProps, } = this.props
       return (
         <Container>
-          <Provider store={store}>
-            <Component {...pageProps} />
-          </Provider>
+          <Component {...pageProps} />
         </Container>
       )
     }
   }
-)
