@@ -8,7 +8,6 @@ import { withRouter } from 'next/router'
 import Index from '../components/homepage/Index'
 import MainHead from '../components/MainHead'
 import { getInitials, getIndexInitials } from '../utils/initial'
-import MainScripts from '../components/MainScripts'
 
 class Homepage extends Component {
 
@@ -20,7 +19,6 @@ class Homepage extends Component {
       <div className="body">
         <MainHead />
         <Index />
-        <MainScripts />
       </div>
     )
   }

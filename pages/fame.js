@@ -7,7 +7,6 @@ import { consoleLog, } from '../utils/config'
 import {isArrayOK} from '../utils/array'
 import {getInitials} from '../utils/initial'
 import MainHead from '../components/MainHead'
-import MainScripts from '../components/MainScripts'
 import FameBox from '../components/fame/FameBox'
 import Header from '../components/login/Header'
 import '../static/sass/fame.scss'
@@ -31,9 +30,10 @@ export default class FamePage extends Component {
         <MainHead />
         <Header query={query} />
         <div className="fame">
-          {fame && !fame.error && <FameBox fame={fame} key={fame.id} isDetail={true} />}
+          {fame && !fame.error &&
+            <FameBox fame={fame} key={fame.id} isDetail={true} />
+          }
         </div>
-        <MainScripts />
       </main>
     )
   }

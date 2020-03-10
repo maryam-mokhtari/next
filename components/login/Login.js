@@ -57,8 +57,9 @@ export default class Login extends Component {
     consoleLog('Login props:', this.props)
     const { isFormSuccess, isFormLoading, errorMessage, isErrorAlert, loginType, boxType,} = this.props
     return (
+      <div>
       <div className="login-box">
-        <fieldset className="form-group">
+        <div className="form-group">
          <label className="login-label" id="login-username-label" htmlFor="username"
            onClick={() => this.refs.username.focus()}
          >
@@ -69,8 +70,8 @@ export default class Login extends Component {
             // defaultValue='test'
             required
            />
-        </fieldset>
-        <fieldset className="form-group">
+        </div>
+        <div className="form-group">
          <label className="login-label" id="login-password-label" htmlFor="password"
            onClick={() => this.refs.password.focus()}>
            Password
@@ -82,11 +83,11 @@ export default class Login extends Component {
             required
              />
           <div className="form-error">{this.state.errorMessage}</div>
-        </fieldset>
+        </div>
         <button
           tabIndex="3"
           disabled={this.state.isLoading}
-          className={`btn btn-primary
+          className={`login-button
             ${this.state.isLoading && "disabled" || ""}`}
           type="button"
           onClick={(e) => this.getFormChecked() && this.submit(e)}
@@ -102,6 +103,8 @@ export default class Login extends Component {
           }
         </button>
         <a className="forget-password">Forget Password?</a>
+      </div>
+      <div className="copyright">&copy; Pixel. All rights reserved.</div>
       </div>
     )
   }

@@ -3,7 +3,6 @@ import { getInitials, } from '../utils/initial'
 import Login from '../components/login/Login'
 import Header from '../components/login/Header'
 import MainHead from '../components/MainHead'
-import MainScripts from '../components/MainScripts'
 
 export default class LoginPage extends Component {
 
@@ -17,7 +16,6 @@ export default class LoginPage extends Component {
         <MainHead />
         <Header isLogin={true} />
         <Login query={query} />
-        <MainScripts />
       </main>
     )
   }

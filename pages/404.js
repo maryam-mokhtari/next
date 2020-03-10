@@ -2,12 +2,11 @@ import React, { Component } from "react"
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import MainHead from "../components/MainHead"
-import MainScripts from "../components/MainScripts"
 import { consoleLog, } from "../utils/config"
 import '../static/sass/404.scss'
 
 export default class ErrorPage404 extends Component {
-  
+
   render() {
     consoleLog("404 props:", this.props)
     const { menu, } = this.props
@@ -23,8 +22,7 @@ export default class ErrorPage404 extends Component {
             </a>
           </Link>
         </div>
-        <MainScripts />
-        </main>
+      </main>
     )
   }
 }

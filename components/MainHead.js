@@ -16,7 +16,6 @@ export default class MainHead extends Component {
         <meta name="theme-color" content="#007fff" />
 
         <meta name="msapplication-TileColor" content="#2c31da" />
-        <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
         <link rel="manifest" href="/static/manifest.json" />
         <link rel="apple-touch-icon" href="/static/img/192.png" />
         <title>{title}</title>

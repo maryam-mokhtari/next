@@ -4,12 +4,27 @@
   padding: 0;
   margin: 0;
 }
+* {
+  box-sizing: border-box;
+}
 html {
   @include page;
 }
 body {
   @include page;
+  font-family: arial;
   font-size: 1rem;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $white;
+  }
+}
+img {
+  vertical-align: middle;
+  border: none;
 }
 #__next {
   @include page;
@@ -19,13 +34,6 @@ main {
   background-color: lighten($color, 75%);
   height: 100%;
 }
-.login-box {
-  background-color: $white;
-  padding: 50px;
-  width: 400px;
-  margin: 10% auto;
-  box-shadow: 0 5px 5px rgba(50, 50, 50, 0.2);
-}
 .header {
   display: flex;
   width: 100%;
@@ -34,17 +42,10 @@ main {
   font-weight: bold;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
 }
 .pixel-logo {
   width: 30px;
   margin: 5px;
-}
-.log-out-div {
-  cursor: pointer;
-  &:hover {
-    color: lighten($color, 50%);
-  }
 }
 .start {
   padding: 20px;

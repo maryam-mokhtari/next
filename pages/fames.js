@@ -7,7 +7,6 @@ import { consoleLog, } from '../utils/config'
 import {isArrayOK} from '../utils/array'
 import {getInitials} from '../utils/initial'
 import MainHead from '../components/MainHead'
-import MainScripts from '../components/MainScripts'
 import FameBox from '../components/fame/FameBox'
 import Header from '../components/login/Header'
 import '../static/sass/fame.scss'
@@ -46,7 +45,6 @@ export default class FamesPage extends Component {
             </Link>
           ))}
         </div>
-        <MainScripts />
       </main>
     )
   }
