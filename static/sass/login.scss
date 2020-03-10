@@ -20,7 +20,7 @@
   background-color: $white;
   padding: 35px;
   width: 300px;
-  margin: 10% auto;
+  margin: 10% auto 10px;
   box-shadow: 0 5px 5px rgba(50, 50, 50, 0.2);
   border-radius: 5px;
 }
@@ -64,5 +64,7 @@
   }
 }
 .copyright {
-  color: lighten($color, 80%);
+  color: lighten($color, 60%);
+  font-size: .8rem;
+  text-align: center;
 }

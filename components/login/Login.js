@@ -104,7 +104,7 @@ export default class Login extends Component {
         </button>
         <a className="forget-password">Forget Password?</a>
       </div>
-      <div className="copyright">&copy; Pixel. All rights reserved.</div>
+      <div className="copyright">&copy;2020 Pixel. All rights reserved.</div>
       </div>
     )
   }
