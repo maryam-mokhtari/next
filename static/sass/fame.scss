@@ -1,0 +1,68 @@
+@import "colors";
+.fames {
+  display: flex;
+  margin: 0 auto;
+  width: 600px;
+  flex-wrap: wrap;
+}
+.fame-box-wrapper {
+  width: 20%;
+  margin: 2%;
+}
+.fame-box {
+  background-color: lighten($color, 70%);
+  border-radius: 10px;
+}
+.fame-box-image {
+  height: 120px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+}
+.fame-box-header {
+  font-size: .9rem;
+  font-weight: bold;
+  color: $color;
+}
+.fame-box-footer {
+  font-size: .8rem;
+  color: lighten($color, 30%);
+}
+.fame-box-content {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+.fame .fame-box-image {
+  height: 300px;
+}
+.back {
+  color: $link !important;
+  font-weight: bold;
+  padding-left: 50px;
+  cursor: pointer;
+}
+.back::before {
+  content: "<";
+}
+.fames-page {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding: 45px;
+}
+.fame-page {
+  margin: 5px;
+  padding: 4px 12px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: lighten($color, 60%);
+  color: lighten($color, 70%);
+}
+.fame-page.selected {
+  background-color: $color;
+  color: $white;
+}

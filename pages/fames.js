@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
+import Link from 'next/link'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { consoleLog, } from '../utils/config'
@@ -9,6 +10,7 @@ import MainHead from '../components/MainHead'
 import MainScripts from '../components/MainScripts'
 import FameBox from '../components/fame/FameBox'
 import Header from '../components/login/Header'
+import '../static/sass/fame.scss'
 
 export default class FamesPage extends Component {
   static async getInitialProps (ctx) {
@@ -22,20 +24,29 @@ export default class FamesPage extends Component {
 
   render() {
     consoleLog('FamesPage props:', this.props)
-    const { fames, } = this.props
+    const { fames, query, } = this.props
+    const { pageNumber } = query
     return (
-      <div>
+      <main>
         <MainHead />
-        <main id="main" className="sec">
-          <Header />
-          <div id="inner-main">
-            {fames && isArrayOK(fames.list) && fames.list.map(fame => (
-              <FameBox fame={fame} key={fame.id} />
-            ))}
-          </div>
-        </main>
+        <Header />
+        <div className="fames">
+          {fames && isArrayOK(fames.list) && fames.list.map(fame => (
+            <FameBox fame={fame} pageNumber={pageNumber} key={fame.id} />
+          ))}
+        </div>
+        <div className="fames-page">
+          {[1,2].map(i => (
+            pageNumber == i?
+            <div className="fame-page selected" key={i}>{i}</div>
+            :
+            <Link href={`/fames/${i}`} key={i}>
+              <a className="fame-page">{i}</a>
+            </Link>
+          ))}
+        </div>
         <MainScripts />
-    </div>
+      </main>
     )
   }
 }

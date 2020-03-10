@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Link from 'next/link'
 import Router from 'next/router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -26,16 +27,14 @@ export default class FamePage extends Component {
     consoleLog('FamePage props:', this.props)
     const { fame, } = this.props
     return (
-      <div>
+      <main>
         <MainHead />
-        <main id="main" className="sec">
-          <Header />
-          <div id="inner-main">
-            {fame && !fame.error && <FameBox fame={fame} key={fame.id} />}
-          </div>
-        </main>
+        <Header />
+        <div className="fame">
+          {fame && !fame.error && <FameBox fame={fame} key={fame.id} isDetail={true} />}
+        </div>
         <MainScripts />
-    </div>
+      </main>
     )
   }
 }
