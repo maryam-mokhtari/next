@@ -26,6 +26,9 @@ export default class Header extends Component {
             Router.push(`/login/fame/${fameId}`) :
             Router.push('/login')
       }
+    }).catch(err => {
+      console.log('login error:', err)
+      Router.push('/404')
     })
   }
   render() {

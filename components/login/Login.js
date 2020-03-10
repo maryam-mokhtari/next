@@ -47,6 +47,9 @@ export default class Login extends Component {
       } else {
         this.setState({isLoginSuccess: false, isLoading: false, errorMessage: 'Login Failed.'})
       }
+    }).catch(err => {
+      console.log('login error:', err)
+      Router.push('/404')
     })
 
   }
