@@ -4,6 +4,7 @@
   margin: 0 auto;
   width: 600px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .fame-box-wrapper {
   width: 20%;
@@ -36,8 +37,13 @@
   justify-content: space-between;
   padding: 10px;
 }
-.fame .fame-box-image {
-  height: 300px;
+.fame {
+  .fame-box-image {
+    height: 300px;
+  }
+  .fame-box-wrapper {
+    width: 250px;
+  }
 }
 .back {
   color: $link !important;

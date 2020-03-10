@@ -12,3 +12,15 @@
   padding-top: 10px;
   float: right;
 }
+.loading-image {
+  width: 30px;
+}
+.form-error {
+  font-style: italic;
+  color: $error;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.login-loading-image {
+  width: 15px;
+}
